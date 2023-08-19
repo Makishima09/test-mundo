@@ -8,12 +8,13 @@ import Hooktwo from './hooks/hooktwo';
 import MiComponenteConContexto from './hooks/hook3'
 import Hook4 from './hooks/hook4';
 import GreetingStyled from './components/pure/greetingStyled';
+import Father from './components/container/father';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* <header className="App-header"> */}
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* Componente propio de Greeting.jsx */}
         {/* <Greeting name="Wazoswki"></Greeting> */}
         {/* Componente funcional */}
@@ -29,7 +30,7 @@ function App() {
         </a> */}
         {/* Componente de Listado de Tareas */}
          {/* <TaskListComponent></TaskListComponent> */}
-        
+
         {/* Ejemplo de Hooks */}
         {/* <Hookone></Hookone> */}
         {/* <Hooktwo></Hooktwo> */}
@@ -44,9 +45,13 @@ function App() {
           <h4>Contenido adicional</h4>
         </Hook4> */}
 
-        <GreetingStyled name='MaikolKnight'></GreetingStyled>
+        {/* <GreetingStyled name='MaikolKnight'></GreetingStyled> */}
 
-      </header>
+      {/* </header> */}
+      {/* Gestión de eventos */}
+      <Father></Father>
+      {/* <TaskListComponent></TaskListComponent> */}
+
     </div>
   );
 }
