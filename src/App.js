@@ -49,8 +49,8 @@ function App() {
 
       {/* </header> */}
       {/* Gestión de eventos */}
-      <Father></Father>
-      {/* <TaskListComponent></TaskListComponent> */}
+      {/* <Father></Father> */}
+      <TaskListComponent></TaskListComponent>
 
     </div>
   );

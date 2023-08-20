@@ -24,10 +24,34 @@ const TaskListComponent = () => {
         };
     }, [tasks]);
 
+    function completeTask(task) {
+        console.log('Completa esta tarea:', task);
+        const index = tasks.indexOf(task);
+        const tempTasks = [...tasks];
+        tempTasks[index].completed = !tempTasks[index].completed;
+        //Actualizamos el estado del componente con la nueva lista de tareas y actualizará la iteración de las tareas y mostrará la tarea actualizada
+        setTasks(tempTasks);
+    }
+
+    function deleteTask(task) {
+        console.log('Elimina esta tarea:', task);
+        const index = tasks.indexOf(task);
+        const tempTasks = [...tasks];
+        tempTasks.splice(index,1);
+        setTasks(tempTasks);
+    }
+
+    function addTask(task) {
+        console.log('Agrega una tarea:', task);
+        const index = tasks.indexOf(task);
+        const tempTasks = [...tasks];
+        tempTasks.push(task);
+        setTasks(tempTasks);
+    }
 
     //cambios de estado de un componente en un hijo que se verá afectado en el padre
     const changeCompleted = (id) => {
-        console.log('TODO: Cambiar estado de una tarea')
+        console.log('TODO: Cambiar estado de una tarea')        
     }
     return (
         <div>
@@ -56,18 +80,19 @@ const TaskListComponent = () => {
                                     return(
                                         <TaskComponent 
                                             key={index} 
-                                            task={task}>
+                                            task={task}
+                                            complete={completeTask}
+                                            remove={deleteTask}>
 
                                         </TaskComponent>
                                         )
                                     }
-                                )}
-                                
+                                )}                                
                             </tbody>
                         </table>
-                    </div>
-                    <TaskForm></TaskForm>
-                </div>                
+                    </div>                    
+                </div>    
+                <TaskForm add={addTask}></TaskForm>            
             </div>
             
             {/* <TaskComponent task={defaultTask} ></TaskComponent> */}
