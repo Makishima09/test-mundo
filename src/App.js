@@ -52,10 +52,10 @@ function App() {
       {/* Gestión de eventos */}
       {/* <Father></Father> */}
       {/* Ejemplos de Renderizado Condicional */}
-      <OptionalRender></OptionalRender>
+      {/* <OptionalRender></OptionalRender> */}
 
       {/* Proyecto Final */}
-      {/* <TaskListComponent></TaskListComponent> */}
+      <TaskListComponent></TaskListComponent>
 
     </div>
   );
