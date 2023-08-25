@@ -31,16 +31,21 @@ const TaskForm = ({add, length}) => {
         fontWeight: 'bold'
     }
     const urgentStyle = {
-        color: '#fcd62b',
-        fontWeight: 'bold'
-    }
-    const blockingStyle = {
         color: '#fc2b2b',
         fontWeight: 'bold'
     }
+    const blockingStyle = {
+        color: '#fcd62b',
+        fontWeight: 'bold'
+    }
+
+    function clearForm() {
+        var formInputs = document.getElementById("form-id");
+        formInputs.reset();
+    }
 
     return (
-        <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4 m-3'>
+        <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4 m-3' id='form-id'>
             <div className='form-outline flex-fill'>
                 <input ref={nameRef} id='inputName' type='text' className='form-control form-control-lg' placeholder='Title task' required autoFocus />
                 <input ref={descriptionRef} id='inputDescription' type='text' className='form-control form-control-lg' placeholder='Description' required/>
@@ -60,6 +65,9 @@ const TaskForm = ({add, length}) => {
 
             <button type='submit' className='btn btn-success btn-lg ms-2'>
                 {length > 0 ? 'Add New Task' : 'Create first task'}
+            </button>
+            <button type='button' onClick={clearForm} className='btn btn-info btn-lg ms-2' style={{color: 'white'}}>
+                Clear Form
             </button>            
             </div>
         </form>

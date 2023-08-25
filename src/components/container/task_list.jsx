@@ -40,7 +40,18 @@ const TaskListComponent = () => {
         const index = tasks.indexOf(task);
         const tempTasks = [...tasks];
         tempTasks.splice(index,1);
-        setTasks(tempTasks);
+        if(!task.completed){
+            var reply = window.confirm('Are you sure you want to delete this uncompleted task?');
+            if (reply) {
+                setTasks(tempTasks)
+                console.log('Tarea INCOMPLETA Eliminada')
+            } else{
+                console.log('Tarea INCOMPLETA NO eliminada')
+            }
+        }else{
+            setTasks(tempTasks);
+            console.log('Tarea COMPLETA ELIMINADA');
+        }
     }
 
     function addTask(task) {
@@ -114,7 +125,7 @@ const TaskListComponent = () => {
                     </div>
                 {/*Card Body (content) */}
                     <div className='card-body' data-mdb-perfect-scrollbar='true' style={ {position: 'relative', height: '400px'} }>
-                        {loading ? (<p style={loadingStyle}>Loading tasks...</p>) : <Tablet></Tablet>}
+                        {loading ? (<p style={loadingStyle}>Loading tasks...</p>) : tasksTable}
                         {/* TODO: Add Loading Spinner con Material UI */}
                     </div>                    
                 </div>    

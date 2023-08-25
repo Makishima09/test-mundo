@@ -32,7 +32,7 @@ const TaskComponent = ({task, complete, remove}) => {
             case LEVELS.URGENTE:
                 return(
                     <h6>
-                        <span className='badge bg-warning'>
+                        <span className='badge bg-danger'>
                         {task.level}
                     </span>
                     </h6>
@@ -41,7 +41,7 @@ const TaskComponent = ({task, complete, remove}) => {
             case LEVELS.BLOCKING:
                 return(
                     <h6>
-                        <span className='badge bg-danger'>
+                        <span className='badge bg-warning'>
                         {task.level}
                     </span>
                     </h6>
@@ -69,17 +69,17 @@ const TaskComponent = ({task, complete, remove}) => {
 
     const taskPending = {
         fontWeight: 'bold',
-        color: 'orangered'
+        color: '#121212'
     }
 
     return (
 
         <tr className='fw-normal' style={task.completed ? taskCompleted : taskPending }>
             <th>
-                <span className='ms-2'>{task.name}</span>
+                <span className='ms-2' style={task.level === LEVELS.URGENTE && !task.completed ? {color: 'red'} : { } } >{task.name}</span>
             </th>
             <td className='align-middle'>
-                <span>{task.description}</span>
+                <span style={task.level === LEVELS.URGENTE && !task.completed ? {color: 'red'} : { } }>{task.description}</span>
             </td>
             <td className='align-middle'>            
             {/* Ejecución de función que devuelve elemento Badge */}
