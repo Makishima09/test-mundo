@@ -33,7 +33,7 @@ const RegisterFormik = () => {
             .min(8, 'Password too short')
             .required('Password is required'),
         confirm: Yup.string()
-        .oneOf([Yup.ref('password')], 'Passwords must match')
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
             // .when("password", {
             //     is: value => !!value, 
             //     then: Yup.string().oneOf(
