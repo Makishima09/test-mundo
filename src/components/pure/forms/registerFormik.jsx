@@ -34,6 +34,7 @@ const RegisterFormik = () => {
             .required('Password is required'),
         confirm: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        //SIN UTILIZAR el .when porque tira error
             // .when("password", {
             //     is: value => !!value, 
             //     then: Yup.string().oneOf(
